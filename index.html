@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ua">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TODO LIST JS</title>
+    <!-- Підключення Dragula через CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dragula/3.7.3/dragula.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/dragula/3.7.3/dragula.min.css" />
+
+    <link rel="stylesheet" href="./css/reset.css" />
+    <link rel="stylesheet" href="./css/style.css" />
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <div class="header__container">
+          <h1>СПИСОК ЗАВДАНЬ</h1>
+        </div>
+      </header>
+      <main class="main">
+        <section class="inner__form__container">
+          <div class="form">
+            <h4 class="form__title">Завдання</h4>
+            <input type="text" id="search" placeholder="Пошук завдань..." />
+            <form id="dataForm">
+              <textarea class="form__textarea" name="desc" rows="8" placeholder="Написати завдання..."></textarea>
+              <button class="form__send-btn" type="submit">Додати</button>
+              <button class="form__cancel-btn none" type="button">Відмінити</button>
+            </form>
+          </div>
+        </section>
+        <section class="output">
+          <div id="output" class="task__container">
+            <ul id="taskTemplate">
+              <!-- <li class="todo__list">
+                <span class="task__index">index</span>
+                <p class="task__text">text</p>
+                <div class="task__btns">
+                  <button class="task__done">
+                    <svg width="20" height="20">
+                      <use href="./img/icons.svg#done"></use>
+                    </svg>
+                  </button>
+                  <button class="task__pinned">
+                    <svg width="20" height="20">
+                      <use href="./img/icons.svg#pinned"></use>
+                    </svg>
+                  </button>
+                  <button class="task__edit">
+                    <svg width="20" height="20">
+                      <use href="./img/icons.svg#edit"></use>
+                    </svg>
+                  </button>
+                  <button class="task__delete">
+                    <svg width="20" height="20">
+                      <use href="./img/icons.svg#delete"></use>
+                    </svg>
+                  </button>
+                </div>
+              </li> -->
+            </ul>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script type="module" src="./js/render.js" defer></script>
+    <script type="module" src="./js/variable.js" defer></script>
+    <script type="module" src="./js/localStorage.js" defer></script>
+    <script type="module" src="./js/taskEvent.js" defer></script>
+    <script type="module" src="./js/btnEvent.js" defer></script>
+    <script type="module" src="./js/searchTask.js" defer></script>
+    <script type="module" src="./js/script.js" defer></script>
+  </body>
+</html>

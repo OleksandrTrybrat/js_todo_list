@@ -1,0 +1,275 @@
+:root {
+  --black: #252525;
+  --purple: #6c63ff;
+  --white: #f7f7f7;
+  --select-border: #534cc2;
+  --select-hover: rgba(108, 99, 255, 0.2);
+
+  --btn-cancel: #6a1616;
+  --btn-cancel-hover: #882626;
+}
+
+body {
+  background: var(--white);
+}
+
+.wrapper {
+  overflow: hidden;
+  display: flex; /* потрібен код для того, щоб далі можно було притиснути футер до низу */
+  flex-direction: column; /* потрібен код для того, щоб далі можно було притиснути футер до низу */
+  min-height: 100%; /* оболонка буде займати мінімум усю ширину вікна браузера */
+
+  align-items: center;
+}
+
+.main {
+  flex: 1 1 auto; /*притискає футер до низу*/
+  margin-bottom: 100px;
+}
+
+[class*='__container'] {
+  /*селектор атрибута*/
+  max-width: 780px; /*780px*/
+  margin: 0 auto;
+  padding: 0 15px; /*15px (відступи безпеки для того, щоб вьюпорт (контент) не притискався до країв сторінки) при додаванні відступів у 15рх в min-width додаємо 30рх і значення буде не 1057 - а 1087рх*/
+}
+
+.none {
+  display: none !important;
+}
+
+.header {
+  padding-top: 20px;
+  margin-bottom: 70px;
+}
+h1 {
+  font-size: 28px;
+  font-weight: 700;
+  letter-spacing: 3px;
+}
+
+#search {
+  display: block;
+  margin: 0 auto 30px;
+  width: 60%;
+  padding: 10px;
+  border: 2px solid var(--purple);
+  font-size: 16px;
+
+  &::placeholder {
+    color: #cecece;
+    letter-spacing: 1px;
+    font-size: 16px;
+  }
+  &:focus {
+    border: 2px solid var(--select-border);
+  }
+  &:focus-visible {
+    outline: none;
+  }
+}
+
+/* FORM */
+
+.form {
+  margin-bottom: 50px;
+}
+.form__title {
+  font-size: 24px;
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 40px;
+}
+.form__textarea {
+  border: 2px solid var(--purple);
+  padding: 10px;
+  margin-bottom: 20px;
+  width: 650px;
+
+  font-size: 18px;
+
+  &::placeholder {
+    color: #cecece;
+    letter-spacing: 1px;
+  }
+  &:focus {
+    border: 2px solid var(--select-border);
+  }
+}
+
+@media (max-width: 665px) {
+  .form__textarea {
+    width: 600px;
+  }
+}
+@media (max-width: 600px) {
+  .form__textarea {
+    width: 500px;
+  }
+}
+
+.form__send-btn {
+  display: block;
+  width: 250px;
+  padding: 10px;
+  margin: 0 auto 10px auto;
+
+  background-color: var(--purple);
+  color: var(--white);
+  border-radius: 5px;
+
+  font-size: 20px;
+  font-weight: 500;
+
+  transition: all 0.3s ease;
+
+  /* &:hover {
+    background-color: var(--select-border);
+  } */
+}
+
+.form__cancel-btn {
+  display: block;
+  width: 250px;
+  padding: 10px;
+  margin: 0 auto;
+
+  border-radius: 5px;
+
+  font-size: 20px;
+  font-weight: 500;
+
+  transition: all 0.3s ease;
+
+  color: var(--white);
+  background-color: var(--btn-cancel);
+
+  /* &:hover {
+    background-color: var(--btn-cancel-hover);
+  } */
+}
+/* FORM */
+/* ! Щоб не було поганого UI ефекту ховер на мобільних пристроях */
+@media (hover: hover) {
+  .form__send-btn:hover {
+    background-color: var(--select-border);
+  }
+  .form__cancel-btn:hover {
+    background-color: var(--btn-cancel-hover);
+  }
+}
+/* ! */
+/* TASK */
+.todo__list {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  height: 25px;
+
+  border: 1px solid var(--purple);
+  border-radius: 5px;
+  padding: 20px;
+}
+.task__index {
+  margin-right: 30px;
+  font-size: 20px;
+  display: block;
+  height: 25px;
+  font-weight: 600;
+}
+
+@media (min-width: 320px) and (max-width: 425px) {
+  .form__textarea {
+    width: 300px;
+  }
+  .task__index {
+    margin-right: 10px;
+  }
+}
+
+.task__text {
+  flex: 1 1 auto;
+
+  font-size: 20px;
+  font-weight: 600;
+  height: 25px;
+}
+.task__btns {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+
+  button {
+    background-color: transparent;
+  }
+}
+
+.task__btns {
+  button {
+    padding-top: 4px;
+    transition: all 0.3s ease;
+  }
+  button:hover {
+    transform: scale(1.1);
+  }
+}
+
+/* TASK */
+
+.todo__list.pinned {
+  border-bottom: 2px solid red;
+}
+p {
+  padding: 0 5px;
+  margin: 0 10px 0 0;
+}
+.done p {
+  text-decoration: line-through;
+  font-weight: 600;
+  font-size: 18px;
+  opacity: 0.5;
+}
+
+.task__pinned svg path {
+  fill: #8000ff;
+  opacity: 0.5;
+}
+.task__done svg path {
+  fill: green;
+  opacity: 0.5;
+}
+
+.task__edit svg path {
+  fill: blue;
+  opacity: 0.5;
+}
+
+.task__delete svg path {
+  fill: red;
+  opacity: 0.5;
+}
+
+.task__pinned.active svg path,
+.task__pinned:active svg path {
+  fill: #8000ff;
+  opacity: 1;
+}
+
+.task__done.active svg path,
+.task__done:active svg path {
+  fill: green;
+  opacity: 1;
+}
+
+.task__delete:active svg path {
+  opacity: 1;
+}
+
+.task__edit:active svg path {
+  opacity: 1;
+}
+
+.hide {
+  display: none;
+}
