@@ -41,6 +41,6 @@ Clone the repository and open the `index.html` file in your browser.
 
 ```sh
 git clone https://github.com/OleksandrTrybrat/js_todo_list.git
-cd simple-task-list
+cd js_todo_list
 open index.html
 ```
